@@ -1,4 +1,4 @@
-import './App.css';
+
 import CardMain from './components/Card';
 import Footer from './components/Footer';
 import PapersView from './components/PapersView';
