@@ -66,7 +66,7 @@ export default function Header() {
 
   return (
     <>
-      <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-2">
         <div className={`flex flex-col lg:flex-row  justify-between text-blue-gray-900  ${window.innerWidth < 1024 ? 'items-end' : 'items-center'}`}>
           <div className="flex items-center my-2">
             <div className={`lg:border-r border-blue-gray-700  ${window.innerWidth < 1024 ? '' : 'pr-4 mr-4'}`}>

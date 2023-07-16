@@ -6,9 +6,15 @@ import Search from './Search'
 export default function Layout() {
   return (
     <div>
-        <Header/>
-        <Search/>
-        <Outlet/>
+      <Header />
+      <div className='container mx-auto'>
+        <Search />
+        <div className='px-3 mt-3'>
+          <Outlet />
+        </div>
+
+      </div>
+
     </div>
   )
 }
