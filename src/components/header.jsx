@@ -27,7 +27,7 @@ export default function Header() {
         color="blue-gray"
         className="p-2 font-normal hover:shadow-md hover:bg-gray-100 hover:font-light  transition duration-300"
       >
-        <a href="#" className="flex items-center mr-2">
+        <a href="" className="flex items-center mr-2">
           Pages
         </a>
       </Typography>
@@ -37,7 +37,7 @@ export default function Header() {
         color="blue-gray"
         className="p-2 font-normal  hover:shadow-md hover:bg-gray-100 transition duration-300"
       >
-        <a href="#" className="flex items-center">
+        <a href="" className="flex items-center">
           Account
         </a>
       </Typography>
@@ -47,7 +47,7 @@ export default function Header() {
         color="blue-gray"
         className="p-2 font-normal  hover:shadow-md hover:bg-gray-100 transition duration-300"
       >
-        <a href="#" className="flex items-center">
+        <a href="" className="flex items-center">
           Blocks
         </a>
       </Typography>
@@ -57,7 +57,7 @@ export default function Header() {
         color="blue-gray"
         className="p-2 font-normal  hover:shadow-md hover:bg-gray-100 transition duration-300"
       >
-        <a href="#" className="flex items-center">
+        <a href="" className="flex items-center">
           Docs
         </a>
       </Typography>
@@ -66,7 +66,7 @@ export default function Header() {
 
   return (
     <>
-      <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-8">
+      <Navbar className="sticky top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className={`flex flex-col lg:flex-row  justify-between text-blue-gray-900  ${window.innerWidth < 1024 ? 'items-end' : 'items-center'}`}>
           <div className="flex items-center my-2">
             <div className={`lg:border-r border-blue-gray-700  ${window.innerWidth < 1024 ? '' : 'pr-4 mr-4'}`}>
@@ -81,19 +81,7 @@ export default function Header() {
             </div>
             <div className="hidden lg:block">{navList}</div>
           </div>
-          <div className="relative flex flex-col w-full gap-2 md:w-max md:flex-row md:items-center">
-            <Input
-              type="search"
-              label="Type here..."
-              className="pr-20"
-              containerProps={{
-                className: "w-full md:w-auto",
-              }}
-            />
-            <Button size="sm" className="!md:absolute md:right-1 md:top-2 rounded">
-              Search
-            </Button>
-          </div>
+          
           <div className="lg:hidden absolute top-5 left-4">
             <IconButton
               variant="text"
