@@ -1,4 +1,4 @@
-import React,{ useState, useRef } from 'react';
+import React,{ useState, useRef, useEffect } from 'react';
 import { usePdf } from '@mikecousins/react-pdf';
 import { IconButton, Typography } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
@@ -7,30 +7,45 @@ import data from '../data';
 
 const ViewPaper=({PaperData})=>{
     const{grade,subject,year,category,marking}=PaperData
-   
+    const [page, setPage] = useState(1);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-      const [page, setPage] = useState(1);
+      // Update the screenWidth state when the window is resized
+      useEffect(() => {
+        const handleResize = () => {
+          setScreenWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+    
+      // Calculate the scale based on the screen width
+      const scale = screenWidth < 768 ? 0.5 : 1; // Adjust the breakpoint and scale as needed
+      
       const canvasRef = useRef(null);
     
       const { pdfDocument, pdfPage } = usePdf({
         file: 'Report-Group10.pdf',
         page,
         canvasRef,
-        scale:1
+        scale:scale,
       });
+    
 
     return(
 
-            <div class="max-w-screen-lg mx-auto  ">
+            <div class="w-full lg:max-w-screen-lg mx-auto  ">
 
                 
 
 
-                <main class="mt-10 whitespace-normal bg-white">
+                <main class="mt-10 whitespace-normal bg-white w-full md">
 
                 <div class="mb-4 md:mb-0 w-full mx-auto relative">
                     <div class="px-4 lg:px-4 py-8">
-                    <h2 class=" font-bold text-gray-800 leading-tight pb-3 text-5xl ">
+                    <h2 class=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
                        {year} Grade {grade} {subject} Paper
                     </h2>
                     <div className='flex flex-row'>
@@ -96,7 +111,7 @@ const ViewPaper=({PaperData})=>{
                     
                     )}
                     <div className='flex justify-center -mt-4'>
-                    <h2 class="text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         Download Paper and Marking
                        
                     </h2>
@@ -236,7 +251,7 @@ const ViewPaper=({PaperData})=>{
                 <div className="flex items-center justify-center px-10 ">
                          <hr className="border-1   border-gray-500 " />
                 </div>
-                <h2 class="text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         You may also want to look at ...
                         <hr className='bg-gray-500'/>
                     </h2>
