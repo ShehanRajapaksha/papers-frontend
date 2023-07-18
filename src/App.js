@@ -1,16 +1,15 @@
 import './App.css';
-import CardMain from './components/Card';
-import Footer from './components/Footer';
-import PapersView from './components/PapersView';
-import Image from './components/img';
-import data from './data'
+
+
+import ViewPaper from './components/ViewPaper';
+
+
 
 function App() {
   return (
     <div>
-      <PapersView/>
-      <Image />
-      <Footer />
+      <ViewPaper/>
+   
     </div>
 
   );

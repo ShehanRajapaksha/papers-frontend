@@ -11,8 +11,6 @@ export default function PapersView(){
       })
 
     return(
-        <div className="grid grid-cols-auto gap-x-0 gap-y-5">
-            {cards}
-        </div>
+       <h1>Hi</h1>
     )  
 }
