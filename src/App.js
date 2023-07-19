@@ -12,6 +12,7 @@ import PaperView from './components/PaperView';
 import NotesView from './components/NotesView';
 import UnitQuestionsView from './components/UnitQuestionsView';
 import AdminView from './components/AdminView';
+import Login from './components/Login';
 
 axios.defaults.baseURL = 'http://localhost:3000'
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/note' element={<NotesView />} />
         <Route path='/unitquestion' element={<UnitQuestionsView />} />
         <Route path='/admin' element={<AdminView />} />
+        <Route path='/login' element={<Login />} />
       </Route>
 
     </Routes>

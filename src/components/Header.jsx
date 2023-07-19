@@ -1,11 +1,11 @@
 import React from "react";
 import {
   Navbar,
-  MobileNav,
   Typography,
   Button,
   IconButton,
   Input,
+  Collapse,
 } from "@material-tailwind/react";
 
 export default function Header() {
@@ -122,9 +122,9 @@ export default function Header() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse open={openNav}>
           {navList}
-        </MobileNav>
+        </Collapse>
       </Navbar>
     </>
   );

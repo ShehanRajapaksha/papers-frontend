@@ -16,10 +16,10 @@ import {
         </CardHeader>
         <CardBody className="text-center">
           <Typography variant="h4" color="blue-gray" className="mb-2">
-            <h2>Grade {props.item.grade} {props.item.subject} {props.item.year} paper</h2>
+            Grade {props.item.grade} {props.item.subject} {props.item.year} paper
           </Typography>
           <Typography color="blue" className="font-medium" textGradient>
-            <h2><i>Marking: {props.item.marking}</i></h2>
+            <i>Marking: {props.item.marking}</i>
           </Typography>
         </CardBody>
         {/* <CardFooter className="pt-0 text-center">

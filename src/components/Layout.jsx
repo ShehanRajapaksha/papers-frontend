@@ -8,7 +8,7 @@ export default function Layout() {
     <div>
       <Header />
       <div className='container mx-auto'>
-        <Search />
+        {/* <Search /> */}
         <div className='px-3 mt-3'>
           <Outlet />
         </div>
