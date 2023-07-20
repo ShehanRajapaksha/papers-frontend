@@ -10,7 +10,7 @@ import {
    
   export default function CardMain(props) {
     return (
-      <Card className="w-64">
+      <Card className="w-64 transform transition-all hover:translate-y-1 duration-300 shadow-lg hover:shadow-2xl">
         <CardHeader floated={false} className="h-56">
           <img src="https://i1.sndcdn.com/avatars-UidYWfW20bjki8Ub-GJKpBQ-t500x500.jpg" alt="profile-picture" />
         </CardHeader>

@@ -11,8 +11,10 @@ export default function PapersView(){
       })
 
     return(
-        <div className="grid grid-cols-auto gap-x-0 gap-y-5">
-            {cards}
+        <div className="flex item-center justify-center min-h-screen container mx-auto">
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8'>
+                {cards}
+            </div>            
         </div>
     )  
 }

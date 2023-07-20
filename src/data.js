@@ -63,4 +63,28 @@ export default[
         category: "A/L" ,
         marking: "available"
     },
+    {
+        id:9 ,
+        grade: "13",
+        subject: "CHEMITRY",
+        year: "2022",
+        category: "A/L" ,
+        marking: "available"
+    },
+    {
+        id:10 ,
+        grade: "13",
+        subject: "CHEMITRY",
+        year: "2022",
+        category: "A/L" ,
+        marking: "available"
+    },
+    {
+        id:11 ,
+        grade: "13",
+        subject: "CHEMITRY",
+        year: "2022",
+        category: "A/L" ,
+        marking: "available"
+    },
 ]
