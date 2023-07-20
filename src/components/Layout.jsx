@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Search from './Search'
 import PapersView from './PapersView'
+import Home from './Home'
 
 export default function Layout() {
   return (
@@ -16,6 +17,7 @@ export default function Layout() {
         </div> */}
 
       </div>
+      {/* <Home /> */}
       <PapersView />
       <Footer />
     </div>

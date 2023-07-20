@@ -1,4 +1,3 @@
-
 import CardMain from './Card';
 import data from '../data'
 
