@@ -13,22 +13,30 @@ import NotesView from './components/NotesView';
 import UnitQuestionsView from './components/UnitQuestionsView';
 import AdminView from './components/AdminView';
 import Login from './components/Login';
+import { AuthProvider } from './components/Auth';
+import { RequireAuth } from './components/RequireAuth';
+
 
 axios.defaults.baseURL = 'http://localhost:3000'
+const loggedIn = window.localStorage.getItem('isLoggedIn')
 
 function App() {
-  return (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<PapersView />} />
-        <Route path='/paper' element={<PaperView />} />
-        <Route path='/note' element={<NotesView />} />
-        <Route path='/unitquestion' element={<UnitQuestionsView />} />
-        <Route path='/admin' element={<AdminView />} />
-        <Route path='/login' element={<Login />} />
-      </Route>
 
-    </Routes>
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<PapersView />} />
+          <Route path='/paper' element={<PaperView />} />
+          <Route path='/note' element={<NotesView />} />
+          <Route path='/unitquestion' element={<UnitQuestionsView />} />
+          <Route path='/admin' element={loggedIn ? <AdminView /> : <RequireAuth><AdminView /></RequireAuth>} />
+          <Route path='/login' element={<Login />} />
+        </Route>
+
+      </Routes>
+    </AuthProvider>
+
   );
 }
 
