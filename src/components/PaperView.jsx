@@ -4,9 +4,11 @@ import { IconButton, Typography } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import CardMain from './Card';
 import data from '../data';
+import { useLocation, useParams } from 'react-router-dom';
 
-const ViewPaper=({PaperData})=>{
-    const{grade,subject,year,category,marking}=PaperData
+const ViewPaper=()=>{
+    const location = useLocation()
+    const data = location.state
     const [page, setPage] = useState(1);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -23,14 +25,15 @@ const ViewPaper=({PaperData})=>{
     
       // Calculate the scale based on the screen width
       const scale = screenWidth < 768 ? 0.5 : 1; // Adjust the breakpoint and scale as needed
+      const scalee = screenWidth > 768 ? 1 : screenWidth > 500 ? 0.5 :0.4;
       
       const canvasRef = useRef(null);
     
       const { pdfDocument, pdfPage } = usePdf({
-        file: 'Report-Group10.pdf',
+        file: `http://localhost:8000${data.pdf}`,
         page,
         canvasRef,
-        scale:scale,
+        scale:scalee,
       });
     
 
@@ -46,10 +49,10 @@ const ViewPaper=({PaperData})=>{
                 <div className="mb-4 md:mb-0 w-full mx-auto relative">
                     <div className="px-4 lg:px-4 py-8">
                     <h2 className=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
-                       {year} Grade {grade} {subject} Paper
+                       {data.year} Grade {data.grade} {data.subject} Paper
                     </h2>
                     <div className='flex flex-row'>
-                        {marking && (
+                        {data.marking && (
                         <span className="py-1  px-2 inline-flex items-center justify-center mb-2 border-green-400 border-2 bg-light-green-100 text-green-400 font-semibold rounded-md shadow-sm hover:bg-green-200 transition-colors text-xs ">
                             <svg
                             xmlns="http://www.w3.org/2000/svg"

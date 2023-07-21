@@ -29,7 +29,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/papers' element={<PapersView />} />
-          <Route path='/paper' element={<PaperView PaperData={data[0]} />} />
+          <Route path='/paper' element={<PaperView />} />
           <Route path='/note' element={<NotesView />} />
           <Route path='/unitquestion' element={<UnitQuestionsView />} />
           <Route path='/admin' element={loggedIn ? <AdminView /> : <RequireAuth><AdminView /></RequireAuth>} />
