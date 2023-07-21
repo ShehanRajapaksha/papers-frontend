@@ -1,9 +1,9 @@
-import CardMain from './Card';
+import CardMini from './CardMini';
 import data from '../data'
 
 export default function PapersView(){
     const cards = data.map(item => {
-        return(<CardMain
+        return(<CardMini
                     key = {item.id}
                     item = {item}      
           />)
@@ -11,7 +11,7 @@ export default function PapersView(){
 
     return(
         <div className="flex item-center justify-center min-h-screen container mx-auto">
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
                 {cards}
             </div>            
         </div>

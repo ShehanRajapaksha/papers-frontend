@@ -1,4 +1,4 @@
-import CardPlus from './CardPlus';
+import CardPlus from './CardMini';
 import data from '../data'
 import CardMain from './Card';
 
