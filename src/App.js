@@ -15,6 +15,7 @@ import AdminView from './components/AdminView';
 import Login from './components/Login';
 import { AuthProvider } from './components/Auth';
 import { RequireAuth } from './components/RequireAuth';
+import Home from './components/Home';
 
 
 axios.defaults.baseURL = 'http://localhost:3000'
@@ -26,7 +27,8 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<PapersView />} />
+          <Route index element={<Home />} />
+          <Route path='/papers' element={<PapersView />} />
           <Route path='/paper' element={<PaperView />} />
           <Route path='/note' element={<NotesView />} />
           <Route path='/unitquestion' element={<UnitQuestionsView />} />

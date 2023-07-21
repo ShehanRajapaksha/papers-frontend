@@ -10,16 +10,16 @@ export default function Layout() {
   return (
     <div>
       <Header />
-      <div className='container mx-auto'>
-        <Search />
-        {/* <div className='px-3 mt-3'>
+      <div className='container sm:px-12 md:px-14 lg:px-36 mx-auto'>
+        {/* <Search /> */}
+        <div className='px-3 mt-3'>
           <Outlet />
-        </div> */}
+        </div>
 
       </div>
       {/* <Home /> */}
-      <PapersView />
-      <Footer />
+      {/* <PapersView /> */}
+      {/* <Footer /> */}
     </div>
   )
 }
