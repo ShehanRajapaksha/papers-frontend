@@ -1,18 +1,27 @@
-import React,{ useState, useRef, useEffect } from 'react';
-import { usePdf } from '@mikecousins/react-pdf';
-import { IconButton, Typography } from "@material-tailwind/react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-import CardMain from './Card';
-import data from '../data';
+// import React,{ useState, useRef, useEffect } from 'react';
+// import { usePdf } from '@mikecousins/react-pdf';
+// import { IconButton, Typography } from "@material-tailwind/react";
+// import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+// import CardMain from './Card';
+// import data from '../data';
 
-export default function NotesView() {
+// export default function NotesView() {
 
+<<<<<<< HEAD
   return (
     <div>
       Notes View
     </div>
   )
   }
+=======
+//   return (
+//     <div>
+//       Notes View
+//     </div>
+//   )
+//   }
+>>>>>>> bac6808254783062dc5465ec8bec89ef10442e49
 // const NotesView=({NoteData})=>{
 //     const{grade,subject}=NoteData
 //     const [page, setPage] = useState(1);
