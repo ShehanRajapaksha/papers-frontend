@@ -4,6 +4,7 @@ import {
   Input,
   Button,
 } from "@material-tailwind/react";
+import axios from 'axios';
 
 export default function NoteCreate() {
 
@@ -13,7 +14,7 @@ export default function NoteCreate() {
   const [pdf, setPdf] = useState('')
   const [img, setImg] = useState('')
 
-  const inputHandler = () => {
+  const inputHandler = (e) => {
     e.target.name === 'grade' ? setGrade(e.target.value) :
       e.target.name === 'subject' ? setSubject(e.target.value) :
         e.target.name === 'unit' ? setUnit(e.target.value) :
@@ -56,7 +57,7 @@ export default function NoteCreate() {
 
         </div>
 
-        <Button className="mt-6" fullWidth>
+        <Button onClick={submitHandler} className="mt-6" fullWidth>
           Sumbit
         </Button>
 

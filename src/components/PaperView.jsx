@@ -36,16 +36,16 @@ const ViewPaper=({PaperData})=>{
 
     return(
 
-            <div class="w-full lg:max-w-screen-lg mx-auto  ">
+            <div className="w-full lg:max-w-screen-lg mx-auto  ">
 
                 
 
 
-                <main class="mt-10 whitespace-normal bg-white w-full md">
+                <main className="mt-10 whitespace-normal bg-white w-full md">
 
-                <div class="mb-4 md:mb-0 w-full mx-auto relative">
-                    <div class="px-4 lg:px-4 py-8">
-                    <h2 class=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
+                <div className="mb-4 md:mb-0 w-full mx-auto relative">
+                    <div className="px-4 lg:px-4 py-8">
+                    <h2 className=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
                        {year} Grade {grade} {subject} Paper
                     </h2>
                     <div className='flex flex-row'>
@@ -111,7 +111,7 @@ const ViewPaper=({PaperData})=>{
                     
                     )}
                     <div className='flex justify-center -mt-4'>
-                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         Download Paper and Marking
                        
                     </h2>
@@ -251,7 +251,7 @@ const ViewPaper=({PaperData})=>{
                 <div className="flex items-center justify-center px-10 ">
                          <hr className="border-1   border-gray-500 " />
                 </div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         You may also want to look at ...
                         <hr className='bg-gray-500'/>
                     </h2>
@@ -274,11 +274,7 @@ const ViewPaper=({PaperData})=>{
 
                
                 </main>
-               
-            
-                
-
-                        
+                      
                 
             </div>
     )  
