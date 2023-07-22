@@ -1,6 +1,8 @@
 
 
 import PapersView from './components/PapersView';
+import Image from './components/Img';
+import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import axios from 'axios';
@@ -11,7 +13,7 @@ import AdminView from './components/AdminView';
 import Login from './components/Login';
 import { AuthProvider } from './components/Auth';
 import { RequireAuth } from './components/RequireAuth';
-import ViewPaper from './components/PaperView';
+import Home from './components/Home';
 import data from './data';
 
 
@@ -24,8 +26,9 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<PapersView />} />
-          <Route path='/papers' element={<PaperView PaperData={data[0]} />} />
+          <Route index element={<Home />} />
+          <Route path='/papers' element={<PapersView />} />
+          <Route path='/paper' element={<PaperView />} />
           <Route path='/note' element={<NotesView />} />
           <Route path='/unitquestion' element={<UnitQuestionsView />} />
           <Route path='/admin' element={loggedIn ? <AdminView /> : <RequireAuth><AdminView /></RequireAuth>} />
