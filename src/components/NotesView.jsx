@@ -6,7 +6,7 @@ import CardMain from './Card';
 import data from '../data';
 
 const NotesView=({NoteData})=>{
-    const{grade,subject,}=NoteData
+    const{grade,subject}=NoteData
     const [page, setPage] = useState(1);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 

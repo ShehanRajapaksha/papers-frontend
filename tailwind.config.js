@@ -8,6 +8,7 @@ module.exports = withMT({
      dark:'#3D3D3D',
      stone:'#a8a29e',
      back:'#556B2F',
+     primary:'#3196EC'
     
 
     }
