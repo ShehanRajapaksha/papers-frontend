@@ -1,58 +1,63 @@
 import React,{ useState, useRef, useEffect } from 'react';
 import { usePdf } from '@mikecousins/react-pdf';
-import { IconButton, Typography } from "@material-tailwind/react";
+import { IconButton, Typography,Spinner } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import CardMain from './Card';
 import data from '../data';
-import { useLocation, useParams } from 'react-router-dom';
+import { useGetPdf } from './hooks/useGetPdf';
+import ErrorAlert from './ErrorAlert';
 
-const ViewPaper=()=>{
-    const location = useLocation()
-    const data = location.state
+
+const ViewPaper=({PaperData})=>{
+    const{grade,subject,year,category,marking}=PaperData
     const [page, setPage] = useState(1);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-      // Update the screenWidth state when the window is resized
-      useEffect(() => {
+    // Update the screenWidth state when the window is resized
+    useEffect(() => {
         const handleResize = () => {
-          setScreenWidth(window.innerWidth);
+        setScreenWidth(window.innerWidth);
         };
         window.addEventListener('resize', handleResize);
         return () => {
-          window.removeEventListener('resize', handleResize);
+        window.removeEventListener('resize', handleResize);
         };
-      }, []);
+    }, []);
     
-      // Calculate the scale based on the screen width
-      const scale = screenWidth < 768 ? 0.5 : 1; // Adjust the breakpoint and scale as needed
-      const scalee = screenWidth > 768 ? 1 : screenWidth > 500 ? 0.5 :0.4;
-      
-      const canvasRef = useRef(null);
+    // Calculate the scale based on the screen width
+    const scale = screenWidth < 768 ? 0.5 : 1; // Adjust the breakpoint and scale as needed
     
-      const { pdfDocument, pdfPage } = usePdf({
-        file: `http://localhost:8000${data.pdf}`,
+    const canvasRef = useRef(null);
+    const  fileUrl='Report-Group11.pdf'
+    const[loading,error,file] = useGetPdf(fileUrl)
+
+  
+    const { pdfDocument, pdfPage } = usePdf({
+        // file: 'Report-Group10.pdf',
+        file:`${file}`,
         page,
         canvasRef,
-        scale:scalee,
-      });
+        scale:scale,
+    });
     
 
     return(
+        
 
-            <div className="w-full lg:max-w-screen-lg mx-auto  ">
-
+            <div class="w-full lg:max-w-screen-lg mx-auto  ">
+                   {!error.length===0 && (<ErrorAlert msg={error}/>)}
                 
 
+           
+                <main class="mt-10 whitespace-normal bg-white w-full md">
 
-                <main className="mt-10 whitespace-normal bg-white w-full md">
-
-                <div className="mb-4 md:mb-0 w-full mx-auto relative">
-                    <div className="px-4 lg:px-4 py-8">
-                    <h2 className=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
-                       {data.year} Grade {data.grade} {data.subject} Paper
+                <div class="mb-4 md:mb-0 w-full mx-auto relative">
+                    <div class="px-4 lg:px-4 py-8">
+                    <h2 class=" font-bold text-gray-800 leading-tight pb-3 text-3xl md:text-5xl ">
+                    {year} Grade {grade} {subject} Paper
                     </h2>
                     <div className='flex flex-row'>
-                        {data.marking && (
+                        {marking && (
                         <span className="py-1  px-2 inline-flex items-center justify-center mb-2 border-green-400 border-2 bg-light-green-100 text-green-400 font-semibold rounded-md shadow-sm hover:bg-green-200 transition-colors text-xs ">
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,20 +76,24 @@ const ViewPaper=()=>{
                     </div>
                                 
                     <div className="flex items-center justify-center pt-4">
-                         <hr className="w-80 border-1 border-gray-500" />
+                        <hr className="w-80 border-1 border-gray-500" />
                     </div>
                     </div>
 
                 
                 </div>
+                {loading &&   <Spinner className="h-12 w-12" />}
+                
+                {error.length===0 &&
                 <div className="mb-4 md:mb-0 w-full mx-auto relative mt-16   justify-center items-center ">
-                    {!pdfDocument && <span>Loading...</span>}
+                  
+                    
                     <div className=' flex justify-center items-center'>
                     <canvas ref={canvasRef} className='border-2 border-black shadow-md p-2 relative z-0  ' />
                     </div>
                     
                     {Boolean(pdfDocument && (pdfDocument.numPages)!==1) && (
-                      
+                    
                         <nav>
                         <div className="flex items-center gap-8 justify-center z-10 p-3 ">
                         <IconButton
@@ -114,12 +123,12 @@ const ViewPaper=()=>{
                     
                     )}
                     <div className='flex justify-center -mt-4'>
-                    <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         Download Paper and Marking
-                       
+                    
                     </h2>
                     </div>
-                  
+                
                     <div className=' flex  justify-center '>
                         <svg
                             version="1.0"
@@ -248,13 +257,13 @@ const ViewPaper=()=>{
                             </text>
                         </svg>
                     
-                 </div>
                 </div>
-               
+                </div>}
+            
                 <div className="flex items-center justify-center px-10 ">
-                         <hr className="border-1   border-gray-500 " />
+                        <hr className="border-1   border-gray-500 " />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 leading-tight pt-36 px-6">
                         You may also want to look at ...
                         <hr className='bg-gray-500'/>
                     </h2>
@@ -275,9 +284,13 @@ const ViewPaper=()=>{
                     </div>
                 </div>
 
-               
+            
                 </main>
-                      
+            
+            
+                
+
+                        
                 
             </div>
     )  
